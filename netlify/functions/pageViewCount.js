@@ -5,7 +5,7 @@ export async function handler(event, context) {
 
   const page = getStore("page");
 
-  let count = await page.get("viewCounter");
+  const count = await page.get("viewCounter");
   const countNum = Number(count) + 1;
   await page.set("viewCounter", JSON.stringify(countNum));
 
