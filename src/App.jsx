@@ -48,11 +48,11 @@ function App() {
 
   const fetchPageviewCount = async () => {
     try {
-      const response = await fetch('/.netlify/functions/pageViewCount');
+      const response = await fetch("/.netlify/functions/pageViewCount");
       const data = await response.json();
       setPageviewCount(data);
     } catch (error) {
-      console.error('Error fetching pageview count:', error);
+      console.error("Error fetching pageview count:", error);
     }
   };
 
@@ -88,8 +88,9 @@ function App() {
         )}
       </div>
 
-      <div className="absolute bottom-1 right-1 text-black">
-        views: <strong>{pageviewCount}</strong>
+      <div className="absolute bottom-3 right-3 text-black bg-white rounded-md px-3 py-2 drop-shadow-md">
+        Page views:{" "}
+        {pageviewCount ? pageviewCount.toString().padStart(6, "0") : ""}
       </div>
     </div>
   );
